@@ -1,0 +1,29 @@
+{
+  "name": "hui",
+  "version": "1.0.0",
+  "description": "A high performance front-end framework closest to native experience.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beyond0523/hui.git"
+  },
+  "keywords": [
+    "android",
+    "ios",
+    "mobile",
+    "wap",
+    "css",
+    "html",
+    "js",
+    "fast"
+  ],
+  "author": "huangchaowei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beyond0523/hui/issues"
+  },
+  "homepage": "https://github.com/beyond0523/hui#readme"
+}
