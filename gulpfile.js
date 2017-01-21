@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     cssuglify = require("gulp-clean-css"),
     // 删除文件
     del = require('del'),
-    // 自動添加瀏覽器前綴
+    // 添加浏览器前缀
     autoprefixer = require('gulp-autoprefixer'),
     // 重命名
     rename = require('gulp-rename');
@@ -29,9 +29,9 @@ gulp.task('compileCSS', ["cleanCSS"], function() {
     gulp.src("./src/sass/mui.scss")
         .pipe(sass())
         .pipe(autoprefixer())
+        .pipe(gulp.dest(path.cssDist))
         .pipe(rename('mui.min.css'))
         .pipe(cssuglify())
-        .pipe(rev())
         .pipe(gulp.dest(path.cssDist));
 });
 
@@ -43,10 +43,10 @@ gulp.task("cleanCSS", function(cb) {
 // 合并压缩js文件
 gulp.task('compileJS', ["cleanJS"], function() {
     gulp.src(path.jsSrc)
-        .pipe(concat('h.js'))
-        .pipe(rename('h.min.js'))
+        .pipe(concat('mui.js'))
+        .pipe(gulp.dest(path.jsDist))
+        .pipe(rename('mui.min.js'))
         .pipe(uglify())
-        .pipe(rev())
         .pipe(gulp.dest(path.jsDist));
 });
 
@@ -55,22 +55,39 @@ gulp.task("cleanJS", function(cb) {
     return del(["./dist/js/*.js"], cb);
 });
 
-// 複製靜態資源
-gulp.task("copy",function(){
-	gulp.src("./src/img/*")
-		.pipe(gulp.dist("./dist/img/"));
-	gulp.src("./src/font/*")
-		.pipe(gulp.dist("./dist/font/"));
-	gulp.src("./src/html/*")
-		.pipe(gulp.dist("./dist/html/"));
-	gulp.src("./src/*.html")
-		.pipe(gulp.dist("./dist/"));
+// 复制上层html
+gulp.task("copyTHtml",function(){
+    gulp.src("./src/*.html")
+        .pipe(gulp.dest("./dist"));
 });
+
+// 复制下层html
+gulp.task("copyBHtml",function(){
+    gulp.src("./src/html/*")
+        .pipe(gulp.dest("./dist/html/"));
+});
+
+// 复制图片
+gulp.task("copyImg",function(){
+	gulp.src("./src/img/*")
+		.pipe(gulp.dest("./dist/img/"));
+});
+// 复制字体文件
+gulp.task("copyFont",function(){
+	gulp.src("./src/font/*")
+		.pipe(gulp.dest("./dist/font/"));
+});
+
+// 复制静态资源
+gulp.task("copy",["copyTHtml","copyBHtml","copyImg","copyFont"]);
 
 // 默认任务
 gulp.task('default',["compileCSS", "compileJS", "copy"], function() {
     // 监听文件变化
     gulp.watch(['./src/js/**/*.js'], ["compileJS"]);
     gulp.watch(['./src/sass/**/*.scss',], ["compileCSS"]);
-    gulp.watch(["./src/*.html", "./src/html/*.html"], ["copy"]);
+    gulp.watch(["./src/*.html"], ["copyTHtml"]);
+    gulp.watch(["./src/html/*.html"], ["copyBHtml"]);
+    gulp.watch(["./src/img/*"], ["copyImg"]);
+    gulp.watch(["./src/font/*"], ["copyFont"]);
 });
