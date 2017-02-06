@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>欢迎来到H的世界</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -140,7 +140,7 @@
 				$('#OA_task_1').on('tap', '.mui-btn', function(event) {
 					var elem = this;
 					var li = elem.parentNode.parentNode;
-					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
+					mui.confirm('确认删除该条记录？', '欢迎来到H的世界', btnArray, function(e) {
 						if (e.index == 0) {
 							li.parentNode.removeChild(li);
 						} else {
@@ -154,7 +154,7 @@
 				//第二个demo，向左拖拽后显示操作图标，释放后自动触发的业务逻辑
 				$('#OA_task_2').on('slideleft', '.mui-table-view-cell', function(event) {
 					var elem = this;
-					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
+					mui.confirm('确认删除该条记录？', '欢迎来到H的世界', btnArray, function(e) {
 						if (e.index == 0) {
 							elem.parentNode.removeChild(elem);
 						} else {
@@ -167,7 +167,7 @@
 				//第二个demo，向右拖拽后显示操作图标，释放后自动触发的业务逻辑
 				$('#OA_task_2').on('slideright', '.mui-table-view-cell', function(event) {
 					var elem = this;
-					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
+					mui.confirm('确认删除该条记录？', '欢迎来到H的世界', btnArray, function(e) {
 						if (e.index == 0) {
 							elem.parentNode.removeChild(elem);
 						} else {

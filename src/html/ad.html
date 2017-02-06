@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
@@ -11,17 +10,15 @@
 			mui.init();
 		</script>
 	</head>
-
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">advertisement（广告模板）</h1>
+			<h1 class="mui-title">广告模板</h1>
 		</header>
 		<div class="mui-content">
 			<div class="mui-content-padded">
 				<p>本页为广告模板示例，集成了百度联盟的网站广告，目前支持广告固定在底部显示。</p>
-				<p>集成教程参考：<a href="http://ask.dcloud.net.cn/article/712">文档中心</a></p>
-				
+				<!--<p>集成教程参考：<a href="http://ask.dcloud.net.cn/article/712">文档中心</a></p>-->
 			</div>
 		</div>
 	</body>
@@ -30,13 +27,10 @@
 			if(plus.networkinfo.getCurrentType() == plus.networkinfo.CONNECTION_NONE){
 				mui.toast("当前网络不给力，无法加载广告");
 			}else{
-				
 				//百度广告集成教程参考：http://ask.dcloud.net.cn/article/712
-				
 				//屏幕真实宽度
 				var width = window.innerWidth;
 				var height = window.innerHeight;
-				
 				/*---需要开发者修改的内容---begin*/
 				//百度联盟申请的广告位id
 				var cpro_id = "u2206321";
@@ -44,7 +38,7 @@
 				var ltu = encodeURIComponent('http://www.dcloud.io/ad/');
 				//投放广告的服务端页面标题
 				var title = encodeURIComponent('DCloud HBuilder-做最好的HTML5开发工具||MUI-最接近原生体验的高性能前端框架');
-				//根据投放广告的比例，计算广告高度，Hello MUI选择的广告位是20:3尺寸
+				//根据投放广告的比例，计算广告高度，欢迎来到H的世界选择的广告位是20:3尺寸
 				var adHeight = parseInt(width)*3/20;
 				/*---需要开发者修改的内容---end*/
 				
@@ -87,8 +81,7 @@
 				//设置主页面的底部留白，否则会被遮住；
 				document.querySelector('.mui-content').style.paddingBottom = adHeight + 'px';
 			}
-		});		
-
+				});
 		//处理点击事件，需要打开原生浏览器
 		mui('body').on('tap', 'a', function(e) {
 			var href = this.getAttribute('href');
@@ -100,7 +93,5 @@
 				}
 			}
 		});
-
 	</script>
-
 </html>

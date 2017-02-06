@@ -1,25 +1,14 @@
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="utf-8">
-		<title>Hello MUI</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-		<link rel="stylesheet" href="css/mui.min.css">
+<% include ./html/_header.html %>
 	</head>
-
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-icon mui-icon-bars mui-pull-left mui-plus-visible"></a>
 			<a id="info" class="mui-icon mui-icon-info-filled mui-pull-right" style="color: #999;"></a>
-			<h1 class="mui-title">Hello mui</h1>
+			<h1 class="mui-title">组件示例</h1>
 		</header>
-		<script src="js/mui.min.js"></script>
-		<script src="js/update.js" type="text/javascript" charset="utf-8"></script>
-		<script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/update.js"></script>
+		<script type="text/javascript">
 			var menu = null,
 				main = null;
 			var showMenu = false;
@@ -64,8 +53,8 @@
 			});
 			var isInTransition = false;
 			/**
-			 * 显示侧滑菜单
-			 */
+			* 显示侧滑菜单
+			*/
 			function openMenu() {
 				if (isInTransition) {
 					return;
@@ -96,8 +85,8 @@
 				}
 			};
 			/**
-			 * 关闭菜单
-			 */
+			* 关闭菜单
+			*/
 			function closeMenu() {
 				if (isInTransition) {
 					return;
@@ -154,7 +143,7 @@
 			document.getElementById('info').addEventListener('tap', function() {
 				if (!mui.os.plus) {
 					mui.openWindow({
-						url: "examples/info.html",
+						url: "html/info.html",
 						id: "info",
 						show: {
 							aniShow: 'zoom-fade-out',
@@ -169,7 +158,7 @@
 				}
 				if (template) {
 					subWebview = template.children()[0];
-					subWebview.loadURL('examples/info.html');
+					subWebview.loadURL('html/info.html');
 					//修改共用父模板的标题
 					mui.fire(template, 'updateHeader', {
 						title: '关于',
@@ -177,14 +166,6 @@
 					});
 					template.show('slide-in-right', 150);
 				}
-				//				mui.openWindow({
-				//					url:"examples/info.html",
-				//					id:"info",
-				//					show:{
-				//						aniShow:'zoom-fade-out',
-				//						duration:300
-				//					}
-				//				});
 			});
 			//首页返回键处理
 			//1、若侧滑菜单显示，则关闭侧滑菜单
@@ -200,5 +181,4 @@
 			};
 		</script>
 	</body>
-
 </html>

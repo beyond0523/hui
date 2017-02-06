@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>欢迎来到H的世界</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/icons-extra.css" />
@@ -22,11 +20,9 @@
 				justify-content: space-between;
 				text-align: center;
 			}
-			
 			.mui-content-padded {
 				padding: 10px;
 			}
-			
 			.mui-content-padded a {
 				margin: 3px;
 				width: 50px;
@@ -38,34 +34,28 @@
 				border-radius: 25px;
 				background-clip: padding-box;
 			}
-			
 			.mui-content-padded a .mui-icon-extra {
 				margin-top: 12px;
 			}
-			
 			.mui-spinner,
 			.mui-spinner-white {
 				margin-top: 12px
 			}
-			
 			.active .mui-spinner-indicator {
 				background: #007AFF;
 			}
-			
 			.mui-content a {
 				color: #8F8F94;
 			}
-			
 			.mui-content a.active {
 				color: #007aff;
 			}
 		</style>
 	</head>
-
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">icons（扩展图标）</h1>
+			<h1 class="mui-title">扩展图标</h1>
 		</header>
 		<div class="mui-content">
 			<div class="mui-content-padded">
@@ -143,19 +133,16 @@
 						span.classList.remove("mui-" + lastid + "-filled");
 						span.classList.add("mui-" + lastid);
 					}
-
 					this.classList.add("active");
 					if(id) {
 						span = this.querySelector("span");
 						span.classList.remove("mui-" + id);
 						span.classList.add("mui-" + id + "-filled");
 					}
-
 					active = this;
 				}
 				lastid = id;
 			});
 		</script>
 	</body>
-
 </html>

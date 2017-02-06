@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>欢迎来到H的世界-进度条</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<!--App自定义的css-->
@@ -17,20 +15,16 @@
 				margin-bottom: 10px;
 				text-align: left;
 			}
-			
 			.mui-demo-container{
 				background-color: #fff;
 				padding: 10px 15px;
 			}
-			
 			.mui-btn-block{
 				padding: 5px 0;
 			}
-			
 			#demo5 .mui-progressbar{
 				margin: 15px 10px;
 			}
-			
 			.mui-progressbar-success span {
 				background-color: #4cd964;
 			}
@@ -43,19 +37,16 @@
 			.mui-progressbar-royal span {
 				background-color: #8a6de9;
 			}
-			
 			/*Android平台使用父子webview，因此需要修改顶部进度条的显示位置*/
 			.mui-plus.mui-android>.mui-progressbar{
 				top:0
 			}
-
 		</style>
 	</head>
-
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">progress bar（进度条）</h1>
+			<h1 class="mui-title">进度条</h1>
 		</header>
 		<div class="mui-content">
 			<div class="mui-demo-container">
@@ -99,7 +90,6 @@
 				<p class="mui-progressbar mui-progressbar-danger" data-progress="50"><span></span></p>
 				<p class="mui-progressbar mui-progressbar-royal" data-progress="80"><span></span></p>
 			</div>
-
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script>
@@ -110,10 +100,10 @@
 				mui(progressbar1).progressbar().setProgress(this.getAttribute('data-progress'));
 			});
 			/**
-			 * 通过随机数模拟业务进度，真实业务中需根据实际进度修改
-			 * @param {Object} container
-			 * @param {Object} progress
-			 */
+			* 通过随机数模拟业务进度，真实业务中需根据实际进度修改
+			* @param {Object} container
+			* @param {Object} progress
+			*/
 			function simulateLoading(container, progress) {
 				if (typeof container === 'number') {
 					progress = container;
@@ -167,5 +157,4 @@
 			});
 		</script>
 	</body>
-
 </html>

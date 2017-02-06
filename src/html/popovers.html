@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>欢迎来到H的世界</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<!--App自定义的css-->
 		<link rel="stylesheet" type="text/css" href="../css/app.css" />
 		<style>
 			/*跨webview需要手动指定位置*/
-			
 			.mui-plus header.mui-bar {
 				display: none!important;
 			}
 			.mui-plus .mui-bar-nav~.mui-content {
 				padding: 0!important;
 			}
-			
 			.mui-plus .plus{
 				display: inline;
 			}
-			
 			.plus{
 				display: none;
 			}
-			
 			#topPopover {
 				position: fixed;
 				top: 16px;
@@ -56,12 +50,11 @@
 			}
 		</style>
 	</head>
-
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<a id="menu" class="mui-action-menu mui-icon mui-icon-bars mui-pull-right" href="#topPopover"></a>
-			<h1 class="mui-title">popover（弹出菜单）</h1>
+			<h1 class="mui-title">弹出菜单</h1>
 		</header>
 		<footer class="mui-bar mui-bar-footer">
 			<a href="#bottomPopover" class="mui-btn mui-btn-link mui-pull-right">菜单</a>
@@ -91,102 +84,98 @@
 							<a href="#">Item1</a>
 						</li>
 						<li class="mui-table-view-cell"><a href="#">Item2</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item3</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item4</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item5</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item6</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item7</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item8</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item9</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item10</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-		</div>
-		<div id="middlePopover" class="mui-popover">
-			<div class="mui-popover-arrow"></div>
-			<div class="mui-scroll-wrapper">
-				<div class="mui-scroll">
-					<ul class="mui-table-view">
-						<li class="mui-table-view-cell"><a href="#">Item1</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item2</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item3</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item4</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item5</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item6</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item7</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item8</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item9</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item10</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-		</div>
-		<!--右下角弹出菜单-->
-		<div id="bottomPopover" class="mui-popover mui-popover-bottom">
-			<div class="mui-popover-arrow"></div>
-			<div class="mui-scroll-wrapper">
-				<div class="mui-scroll">
-					<ul class="mui-table-view">
-						<li class="mui-table-view-cell"><a href="#">Item1</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item2</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item3</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item4</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item5</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item6</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item7</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item8</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item9</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">Item10</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-		</div>
-		<script src="../js/mui.min.js"></script>
-		<script>
-			mui.init({
-				swipeBack: true //启用右滑关闭功能
-			});
-			mui('.mui-scroll-wrapper').scroll();
-			mui('body').on('shown', '.mui-popover', function(e) {
-				//console.log('shown', e.detail.id);//detail为当前popover元素
-			});
-			mui('body').on('hidden', '.mui-popover', function(e) {
-				//console.log('hidden', e.detail.id);//detail为当前popover元素
-			});
-		</script>
-	</body>
-
+					</li>
+					<li class="mui-table-view-cell"><a href="#">Item3</a>
+				</li>
+				<li class="mui-table-view-cell"><a href="#">Item4</a>
+			</li>
+			<li class="mui-table-view-cell"><a href="#">Item5</a>
+		</li>
+		<li class="mui-table-view-cell"><a href="#">Item6</a>
+	</li>
+	<li class="mui-table-view-cell"><a href="#">Item7</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item8</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item9</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item10</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="middlePopover" class="mui-popover">
+<div class="mui-popover-arrow"></div>
+<div class="mui-scroll-wrapper">
+<div class="mui-scroll">
+<ul class="mui-table-view">
+<li class="mui-table-view-cell"><a href="#">Item1</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item2</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item3</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item4</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item5</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item6</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item7</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item8</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item9</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item10</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!--右下角弹出菜单-->
+<div id="bottomPopover" class="mui-popover mui-popover-bottom">
+<div class="mui-popover-arrow"></div>
+<div class="mui-scroll-wrapper">
+<div class="mui-scroll">
+<ul class="mui-table-view">
+<li class="mui-table-view-cell"><a href="#">Item1</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item2</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item3</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item4</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item5</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item6</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item7</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item8</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item9</a>
+</li>
+<li class="mui-table-view-cell"><a href="#">Item10</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<script src="../js/mui.min.js"></script>
+<script>
+	mui.init({
+		swipeBack: true //启用右滑关闭功能
+	});
+	mui('.mui-scroll-wrapper').scroll();
+	mui('body').on('shown', '.mui-popover', function(e) {
+		//console.log('shown', e.detail.id);//detail为当前popover元素
+	});
+	mui('body').on('hidden', '.mui-popover', function(e) {
+		//console.log('hidden', e.detail.id);//detail为当前popover元素
+	});
+</script>
+</body>
 </html>

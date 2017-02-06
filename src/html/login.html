@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
@@ -37,11 +36,10 @@
 			}
 		</style>
 	</head>
-
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">login（登录）</h1>
+			<h1 class="mui-title">登录</h1>
 		</header>
 		<div class="mui-content">
 			<div class="mui-content-padded">
@@ -51,33 +49,32 @@
 				</p>
 				<h5>体验方式</h5>
 				<ol>
-					<li>在 HBuilder 中新建“移动App”工程，选择 “mui登录模板” ；</li>
-					<li>在 GitHub 上查看或下载 <a _src='https://github.com/dcloudio/mui/tree/master/examples/login'>登录模板源码</a> 。
-					</li>
-				</ol>
-				<h5>演示截图</h5>
-				<p style="text-align: center;">
-					<img src="../images/login-1.png" />
-				</p>
-			</div>
+					<li>在 新建工程中引入 “H登录模板” ；</li>
+					<li>在 GitHub 上查看或下载 <a _src=''>登录模板源码</a> 。
+				</li>
+			</ol>
+			<h5>演示截图</h5>
+			<p style="text-align: center;">
+				<img src="../img/login-1.png" />
+			</p>
 		</div>
-		<script src="../js/mui.min.js"></script>
-		<script type="text/javascript" charset="utf-8">
-			(function(mui, window, document, undefined) {
-				mui.init();
-				var qsa = function() {
-					return [].slice.call(document.querySelectorAll.apply(document, arguments));
-				};
-				qsa("[_src]").forEach(function(item) {
-					item.addEventListener('tap', function() {
-						var url = this.getAttribute('_src');
-						if (url) {
-							plus.runtime.openURL(url);
-						};
-					}, false);
-				});
-			})(mui, window, document, undefined);
-		</script>
-	</body>
-
+	</div>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		(function(mui, window, document, undefined) {
+			mui.init();
+			var qsa = function() {
+				return [].slice.call(document.querySelectorAll.apply(document, arguments));
+			};
+			qsa("[_src]").forEach(function(item) {
+				item.addEventListener('tap', function() {
+					var url = this.getAttribute('_src');
+					if (url) {
+						plus.runtime.openURL(url);
+					};
+				}, false);
+			});
+		})(mui, window, document, undefined);
+	</script>
+</body>
 </html>

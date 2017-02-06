@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>欢迎来到H的世界</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<!--App自定义的css-->
@@ -23,20 +21,18 @@
 				padding-right: 10px;
 			}
 			#info{
-		  		padding: 20px 10px ;
-		  	}
-		  	.des{
-		  		margin: .5em 0;
-		  	}
-		  	.des>li{
-		  		font-size: 14px;
+				padding: 20px 10px ;
+			}
+			.des{
+				margin: .5em 0;
+			}
+			.des>li{
+				font-size: 14px;
 				color: #8f8f94;
-		  	}
+			}
 		</style>
 	</head>
-
 	<body>
-
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">原生模式actionsheet</h1>
@@ -54,14 +50,13 @@
 		</nav>
 		<div class="mui-content">
 			<div class="mui-content-padded">
-				<p>这是5+ runtime封装的原生actionsheet，该模式具备如下优点：</p>
+				<p>这是H封装的原生actionsheet，该模式具备如下优点：</p>
 				<ul class="des">
 					<li>支持覆盖顶部状态栏</li>
 					<li>支持跨webview的遮罩</li>
 					<li>在有map等原生组件时，依然会显示在最顶层，不会被遮挡</li>
-				</ul>	
-				<p>另一方面，原生模式的actionsheet目前不支持自定义样式</p>	
-				
+				</ul>
+				<p>另一方面，原生模式的actionsheet目前不支持自定义样式</p>
 				<p>
 					<a id="picture-btn" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined" style="padding: 5px 20px;">打开actionsheet</a>
 				</p>
@@ -124,5 +119,4 @@
 			} );
 		});
 	</script>
-
 </html>

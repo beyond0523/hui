@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>欢迎来到H的世界</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<style>
 			html,
@@ -41,7 +39,6 @@
 			}
 		</style>
 	</head>
-
 	<body>
 		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
 			<!--侧滑菜单部分-->
@@ -56,7 +53,6 @@
 							<p style="margin: 10px 15px;">
 								<button id="offCanvasHide" type="button" class="mui-btn mui-btn-danger mui-btn-block" style="padding: 5px 20px;">关闭侧滑菜单</button>
 							</p>
-
 						</div>
 						<div class="title" style="margin-bottom: 25px;">侧滑列表示例</div>
 						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
@@ -110,13 +106,11 @@
 							</p>
 							<p style="padding: 5px 20px;margin-bottom: 5px;">
 								<button id="offCanvasShow" type="button" class="mui-btn mui-btn-primary mui-btn-block" style="padding: 10px;">
-									显示侧滑菜单
+								显示侧滑菜单
 								</button>
 							</p>
 							<p>侧滑菜单的移动动画，支持多种效果，切换如下选项体验不同动画效果：</p>
-
 						</div>
-
 						<form class="mui-input-group" style="margin-bottom: 15px;">
 							<div class="mui-input-row mui-radio">
 								<label>主界面移动、菜单不动</label>
@@ -135,7 +129,6 @@
 								<input name="style" type="radio" value="main-move-scalable">
 							</div>
 						</form>
-
 					</div>
 				</div>
 				<!-- off-canvas backdrop -->
@@ -145,11 +138,11 @@
 		<script src="../js/mui.min.js"></script>
 		<script>
 			mui.init();
-			 //侧滑容器父节点
+			//侧滑容器父节点
 			var offCanvasWrapper = mui('#offCanvasWrapper');
-			 //主界面容器
+			//主界面容器
 			var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
-			 //菜单容器
+			//菜单容器
 			var offCanvasSide = document.getElementById("offCanvasSide");
 			if (!mui.os.android) {
 				document.getElementById("move-togger").classList.remove('mui-hidden');
@@ -158,11 +151,11 @@
 					spans[i].style.display = "none";
 				}
 			}
-			 //移动效果是否为整体移动
+			//移动效果是否为整体移动
 			var moveTogether = false;
-			 //侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
+			//侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
 			var classList = offCanvasWrapper[0].classList;
-			 //变换侧滑动画移动效果；
+			//变换侧滑动画移动效果；
 			mui('.mui-input-group').on('change', 'input', function() {
 				if (this.checked) {
 					offCanvasSide.classList.remove('mui-transitioning');
@@ -195,18 +188,18 @@
 					offCanvasWrapper.offCanvas().refresh();
 				}
 			});
-			 //主界面‘显示侧滑菜单’按钮的点击事件
+			//主界面‘显示侧滑菜单’按钮的点击事件
 			document.getElementById('offCanvasShow').addEventListener('tap', function() {
 				offCanvasWrapper.offCanvas('show');
 			});
-			 //菜单界面，‘关闭侧滑菜单’按钮的点击事件
+			//菜单界面，‘关闭侧滑菜单’按钮的点击事件
 			document.getElementById('offCanvasHide').addEventListener('tap', function() {
 				offCanvasWrapper.offCanvas('close');
 			});
-			 //主界面和侧滑菜单界面均支持区域滚动；
+			//主界面和侧滑菜单界面均支持区域滚动；
 			mui('#offCanvasSideScroll').scroll();
 			mui('#offCanvasContentScroll').scroll();
-			 //实现ios平台原生侧滑关闭页面；
+			//实现ios平台原生侧滑关闭页面；
 			if (mui.os.plus && mui.os.ios) {
 				mui.plusReady(function() { //5+ iOS暂时无法屏蔽popGesture时传递touch事件，故该demo直接屏蔽popGesture功能
 					plus.webview.currentWebview().setStyle({
@@ -216,5 +209,4 @@
 			}
 		</script>
 	</body>
-
 </html>
