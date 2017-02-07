@@ -1,4 +1,6 @@
 var gulp = require('gulp'),
+    // 启动参数获取
+    yargs = require('yargs').argv,
     // sass编译
     sass = require('gulp-sass'),
     // 多个文件合并
@@ -6,7 +8,7 @@ var gulp = require('gulp'),
     // js压缩
     uglify = require('gulp-uglify'),
     // html编译
-    ejs = require('gulp-ejs'),
+    // ejs = require('gulp-ejs'),
     // html压缩
     html = require('gulp-htmlmin'),
     // css压缩
@@ -17,6 +19,8 @@ var gulp = require('gulp'),
     // autoprefixer = require('gulp-autoprefixer'),
     // nunjucks模板解析
     nunjucks  = require('gulp-nunjucks-render'),
+    // 浏览器同步刷新
+    sync = require('browser-sync'),
     // 重命名
     rename = require('gulp-rename');
 
@@ -128,7 +132,8 @@ gulp.task("cleanJS", function(cb) {
 // 编译并复制上层html
 gulp.task("copyTHtml",function(){
     gulp.src("./src/*.html")
-        .pipe(ejs({}))
+        // .pipe(ejs({}))
+        .pipe(nunjucks({}))
         .pipe(html(options))
         .pipe(gulp.dest("./dist"));
 });
@@ -156,9 +161,26 @@ gulp.task("copyFont",function(){
 // 复制静态资源
 gulp.task("copy",["copyTHtml","copyBHtml","copyImg","copyFont"]);
 
-// 默认任务
-gulp.task('default',["compileCSS", "compileJS", "copy"], function() {
-    // 监听文件变化
+// 启动服务
+gulp.task("server",function(){
+    yargs.p = yargs.p || 8080;
+    sync.init({
+        server : {
+            baseDir : "./"
+        },
+        ui: {
+            port: yargs.p + 1,
+            weinre : {
+                port: yargs.p+2
+            }
+        },
+        port: yargs.p,
+        startPath:"./dist/"
+    });
+});
+
+// 监听任务
+gulp.task("monitor",function(){
     gulp.watch(['./src/js/**/*.js'], ["compileJS"]);
     gulp.watch(['./src/sass/**/*.scss',], ["compileCSS"]);
     gulp.watch(["./src/*.html"], ["copyTHtml"]);
@@ -166,4 +188,14 @@ gulp.task('default',["compileCSS", "compileJS", "copy"], function() {
     gulp.watch(["./src/img/*"], ["copyImg"]);
     gulp.watch(["./src/font/*"], ["copyFont"]);
     gulp.watch(["./gulpfile.js"], ["default"]);
+}); 
+
+// 默认任务
+gulp.task('default',["compileCSS", "compileJS", "copy"], function() {
+    if (yargs.s){
+        gulp.start("server");
+    }
+    if (yargs.w){
+        gulp.start("monitor");
+    }
 });
