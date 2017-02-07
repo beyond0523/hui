@@ -15,6 +15,8 @@ var gulp = require('gulp'),
     del = require('del'),
     // 添加浏览器前缀
     // autoprefixer = require('gulp-autoprefixer'),
+    // nunjucks模板解析
+    nunjucks  = require('gulp-nunjucks-render'),
     // 重命名
     rename = require('gulp-rename');
 
