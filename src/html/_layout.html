@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+        <title>欢迎来到H的世界-{{ page.title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no, address=no,email=no"/>
+        <meta name="keywords" content="HTML5,html,html5,wap,wap-app,app,H,h,HUI,hui,H框架,H ui框架,原生app,混合app,hybrid app,app框架,快速开发app"/>
+        <meta name="description" content="H框架是一款轻量级的app开发框架,借助其强大的组件可以实现快速app开发,是目前最接近原生app性能的一款超高效web框架"/>
+        {%block meta%}{%endblock%}
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+        {%block css%}{%endblock%}
+    </head>        
+    <body>
+        {% if page.hide != true %}
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-bars mui-pull-left mui-plus-visible"></a>
+            {% if page.index %}
+            <a id="info" class="mui-icon mui-icon-info-filled mui-pull-right" style="color: #007aff;"></a>
+            {%endif%}
+            <h1 class="mui-title">{{ page.barTitle }}</h1>
+		</header>
+        {% endif %}
+        <div class="mui-content">
+            {%block content%}{%endblock%}
+        </div>
+        {%block footer%}{%endblock%}
+		<script type="text/javascript" src="js/mui.min.js"></script>
+        {%block js%}{%endblock%}
+    </body>
+</html> 

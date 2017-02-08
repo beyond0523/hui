@@ -7,10 +7,12 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     // js压缩
     uglify = require('gulp-uglify'),
-    // html编译
+    // ejs模板编译为html
     // ejs = require('gulp-ejs'),
     // html压缩
     html = require('gulp-htmlmin'),
+    // 数据获取
+    // data = require('gulp-data'),
     // css压缩
     cssuglify = require("gulp-clean-css"),
     // 删除文件
@@ -126,14 +128,20 @@ gulp.task('compileJS', ["cleanJS"], function() {
 
 // 删除js文件
 gulp.task("cleanJS", function(cb) {
-    return del(["./dist/js/*.js"], cb);
+    return del(["./dist/js/mui*.js"], cb);
 });
+
+// 获取数据
+function getData(file){
+    console.log(file.data);
+}
 
 // 编译并复制上层html
 gulp.task("copyTHtml",function(){
     gulp.src("./src/*.html")
         // .pipe(ejs({}))
-        .pipe(nunjucks({}))
+        // .pipe(data(getData))
+        .pipe(nunjucks({page:{title:"测试"}}))
         .pipe(html(options))
         .pipe(gulp.dest("./dist"));
 });
