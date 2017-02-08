@@ -113,7 +113,7 @@ gulp.task('compileCSS', ["cleanCSS"], function() {
 
 // 删除css文件
 gulp.task("cleanCSS", function(cb) {
-    return del(["./dist/css/mui*.css"], cb);
+    return del(["./dist/css/mui.css","./dist/css/mui.min.css"], cb);
 });
 
 // 合并压缩js文件
@@ -128,7 +128,7 @@ gulp.task('compileJS', ["cleanJS"], function() {
 
 // 删除js文件
 gulp.task("cleanJS", function(cb) {
-    return del(["./dist/js/mui*.js"], cb);
+    return del(["./dist/js/mui.js","./dist/js/mui.min.js"], cb);
 });
 
 // 获取数据
@@ -141,7 +141,7 @@ gulp.task("copyTHtml",function(){
     gulp.src("./src/*.html")
         // .pipe(ejs({}))
         // .pipe(data(getData))
-        .pipe(nunjucks({page:{title:"测试"}}))
+        .pipe(nunjucks({}))
         .pipe(html(options))
         .pipe(gulp.dest("./dist"));
 });
