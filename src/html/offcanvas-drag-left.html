@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="utf-8">
-		<title>欢迎来到H的世界</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-		<link rel="stylesheet" href="../css/mui.min.css">
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "侧滑导航",
+    barTitle : "侧滑导航"
+} %}
+{%block css%}
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			html,
 			body {
@@ -40,9 +36,8 @@
 				color: #000;
 			}
 		</style>
-	</head>
-
-	<body>
+{%endblock%}
+{%block content%}
 		<!--侧滑菜单容器-->
 		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
 			<!--菜单部分-->
@@ -143,7 +138,8 @@
 				<div class="mui-off-canvas-backdrop"></div>
 			</div>
 		</div>
-		<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 		<script>
 			mui.init({
 				swipeBack: false,
@@ -223,6 +219,4 @@
 				});
 			}
 		</script>
-	</body>
-
-</html>
+{%endblock%}

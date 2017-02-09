@@ -1,19 +1,12 @@
-<!doctype html>
-<html lang="en" class="feedback">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>问题反馈</title>
-		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
-		<link rel="stylesheet" type="text/css" href="../css/feedback.css" />
-	</head>
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>
-			<h1 class="mui-title">问题反馈</h1>
-		</header>
-		<div class="mui-content">
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "问题反馈",
+    barTitle : "问题反馈"
+} %}
+{%block css%}
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
+{%endblock%}
+{%block content%}
 			<div class="mui-content-padded">
 				<div class="mui-inline">问题和意见</div>
 				<a class="mui-pull-right mui-inline" href="#popover">
@@ -58,12 +51,12 @@
 					<i data-index="5" class="mui-icon mui-icon-star"></i>
 				</div>
 			</div><br />
-		</div>
+{%endblock%}
+{%block js%}
 		<script type="text/javascript" src="../js/mui.min.js"></script>
 		<script type="text/javascript" src=" ../js/feedback.js"></script>
 		<script type="text/javascript" type="text/javascript">
 			mui.init();
 			mui('.mui-scroll-wrapper').scroll();
 		</script>
-	</body>
-</html>
+{%endblock%}

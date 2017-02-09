@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>欢迎来到H的世界</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="stylesheet" href="../css/mui.min.css">
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "导航栏",
+    barTitle : "导航栏"
+} %}
+{%block css%}
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			html,
 			body {
@@ -34,13 +32,8 @@
 				color: #8f8f94;
 			}
 		</style>
-	</head>
-	<body>
-		<header id="header" class="mui-bar mui-bar-transparent">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">导航栏</h1>
-		</header>
-		<div class="mui-content">
+{%endblock%}
+{%block content%}
 			<img id="img1" src="../img/yuantiao.jpg"/>
 			<div id="slider" class="mui-slider mui-hidden" >
 				<div class="mui-slider-group">
@@ -83,8 +76,8 @@
 					<input name="style" type="radio" value="left-icon">
 				</div>
 			</form>
-		</div>
-		<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 		<script type="text/javascript">
 			mui.init({
 				swipeBack: true //启用右滑关闭功能
@@ -110,5 +103,4 @@
 				}
 			});
 		</script>
-	</body>
-</html>
+{%endblock%}

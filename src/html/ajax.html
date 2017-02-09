@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>欢迎来到H的世界</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="../css/mui.min.css">
-		<!--App自定义的css-->
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "网络请求",
+    barTitle : "网络请求"
+} %}
+{%block css%}
 		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			.mui-content-padded {
@@ -26,13 +21,8 @@
 				border-radius: 4px;
 			}
 		</style>
-	</head>
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">网络请求</h1>
-		</header>
-		<div class="mui-content">
+{%endblock%}
+{%block content%}
 			<div class="mui-content-padded" style="padding-bottom: 50px;">
 				<p style="text-indent: 22px;">
 					H基于XMLHttpRequest，封装了常用的ajax函数，支持Get、Post请求方式， 支持返回json、xml、html、text、script数据类型；本示例使用<a href="http://www.oschina.net/question/82993_78609">RunJS</a>的Echo Ajax功能演示网络请求。
@@ -61,8 +51,8 @@
 				<h4 class="mui-content-padded">获得响应：</h4>
 				<code id="response"></code>
 			</div>
-		</div>
-		<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 		<script>
 			(function($) {
 				$.init({
@@ -145,5 +135,4 @@
 			});
 		})(mui);
 	</script>
-</body>
-</html>
+{%endblock%}

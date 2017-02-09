@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>欢迎来到H的世界</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="stylesheet" href="../css/mui.min.css">
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "侧滑导航",
+    barTitle : "侧滑导航"
+} %}
+{%block css%}
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			html,
 			body {
@@ -38,14 +36,14 @@
 				color: #000;
 			}
 		</style>
-	</head>
-	<body>
+{%endblock%}
+{%block content%}
 		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
 			<!--侧滑菜单部分-->
 			<aside id="offCanvasSide" class="mui-off-canvas-left">
 				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
 					<div class="mui-scroll">
-						<div class="title">侧滑导航</div>
+						<div class="title"></div>
 						<div class="content">
 							这是可拖动式侧滑菜单示例，你可以在这里放置任何内容；关闭侧滑菜单有多种方式： 1.在手机屏幕任意位置向左拖动(drag)；2.点击本侧滑菜单页之外的任意位置; 3.点击如下红色按钮
 							<span class="android-only">；4.Android手机按back键；5.Android手机按menu键
@@ -135,7 +133,8 @@
 				<div class="mui-off-canvas-backdrop"></div>
 			</div>
 		</div>
-		<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 		<script>
 			mui.init();
 			//侧滑容器父节点
@@ -208,5 +207,4 @@
 				});
 			}
 		</script>
-	</body>
-</html>
+{%endblock%}

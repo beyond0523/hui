@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>欢迎来到H的世界-日期时间选择器</title>
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="../css/mui.min.css">
-		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "日期时间选择器",
+    barTitle : "日期时间选择器"
+} %}
+{%block css%}
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
 		<style>
 			html,
@@ -39,13 +36,8 @@
 				-webkit-user-select: none;
 			}
 		</style>
-	</head>
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">日期时间选择器</h1>
-		</header>
-		<div class="mui-content">
+{%endblock%}
+{%block content%}
 			<div class="mui-content-padded">
 				<h5 class="mui-content-padded">常规示例</h5>
 				<button id='demo1' data-options='{}' class="btn mui-btn mui-btn-block">选择日期时间 ...</button>
@@ -61,8 +53,8 @@
 				<button id='demo7' data-options='{"type":"hour","customData":{"h":[{"text":"上午","value":"上午"},{"text":"下午","value":"下午"},{"text":"晚上","value":"晚上"}]},"labels":["年", "月", "日", "时段", "分"]}' class="btn mui-btn mui-btn-block">选择时段 ...</button>
 				<div id='result' class="ui-alert"></div>
 			</div>
-		</div>
-		<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 		<script src="../js/mui.picker.min.js"></script>
 		<script>
 			(function($) {
@@ -107,5 +99,4 @@
 				});
 			})(mui);
 		</script>
-	</body>
-</html>
+{%endblock%}

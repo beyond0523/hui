@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="utf-8">
-		<title>欢迎来到H的世界</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="../css/mui.min.css">
-		<!--App自定义的css-->
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "普通按钮",
+    barTitle : "普通按钮"
+} %}
+{%block css%}
 		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			input, button, .mui-btn {
@@ -18,14 +11,8 @@
 				margin-left: 10px;
 			}
 		</style>
-	</head>
-
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">普通按钮</h1>
-		</header>
-		<div class="mui-content">
+{%endblock%}
+{%block content%}
 			<div class="mui-content-padded">
 				<h5>有底色按钮：</h5>
 				<button type="button" class="mui-btn">
@@ -78,12 +65,11 @@
 				<button type="button" >按钮</button>
 		
 			</div>
-		</div>
-		</body>
-	<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
 		});
 	</script>
-</html>
+{%endblock%}

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>欢迎来到H的世界</title>
-		<link href="../css/mui.min.css" rel="stylesheet" />
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "索引列表",
+    barTitle : "索引列表"
+} %}
+{%block css%}
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<link href="../css/mui.indexedlist.css" rel="stylesheet" />
 		<style>
 			html,
@@ -17,13 +17,8 @@
 				box-shadow: none;
 			}
 		</style>
-	</head>
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">索引列表</h1>
-		</header>
-		<div class="mui-content">
+{%endblock%}
+{%block content%}
 			<div id='list' class="mui-indexed-list">
 				<div class="mui-indexed-list-search mui-input-row mui-search">
 					<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索机场">
@@ -244,8 +239,8 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-		<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 		<script src="../js/mui.indexedlist.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
@@ -258,6 +253,4 @@
 				window.indexedList = new mui.IndexedList(list);
 			});
 		</script>
-	</body>
-
-</html>
+{%endblock%}

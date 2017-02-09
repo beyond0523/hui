@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="utf-8">
-		<title>欢迎来到H的世界</title>
-		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-		<link rel="stylesheet" href="../css/mui.min.css">
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "侧滑导航",
+    barTitle : "侧滑导航"
+} %}
+{%block css%}
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			body, .mui-content {
 				background-color: #333;
@@ -34,10 +30,9 @@
 			  	margin-bottom: 35px;
 			  }
 		</style>
-	</head>
-	<body>
-		<div class="mui-content">
-			<div class="title">侧滑导航</div>
+{%endblock%}
+{%block content%}
+			<div class="title"></div>
 				<div class="content">
 					这是侧滑菜单示例，你可以在这里放置任何内容；关闭侧滑菜单有多种方式：
 					1.在手机屏幕任意位置快速向左滑动(swipe)；
@@ -84,8 +79,8 @@
 						</a>
 					</li>
 				</ul>
-		</div>
-		<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 		<script type="text/javascript" charset="utf-8">
 			mui.init({
 				keyEventBind: {
@@ -106,6 +101,4 @@
 			document.getElementById("close-btn").addEventListener('tap',closeMenu);
 			mui.menu = closeMenu;
 		</script>
-</body>
-
-</html>
+{%endblock%}

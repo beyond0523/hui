@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
-		<link rel="stylesheet" href="../css/mui.min.css">
-		<script src="../js/mui.min.js"></script>
-		<script type="text/javascript" charset="utf-8">
-			mui.init();
-		</script>
-		<!--标准mui.css-->
+{% extends "src/html/_layout.html" %}
+{% set page={
+    cid : "dcontent",
+    title : "云端支付",
+    barTitle : "云端支付"
+} %}
+{%block css%}
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			.mui-content-padded {
 				padding: 10px;
@@ -37,14 +32,8 @@
 				padding: 8px 5px;
 			}
 		</style>
-	</head>
-
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">cloud Pay（云端支付）</h1>
-		</header>
-		<div id="dcontent" class="mui-content">
+{%endblock%}
+{%block content%}
 			<div class="mui-content-padded">
 				<p style="text-indent: 22px;">
 					这是mui无后端开发示例，集成BeeCloud云支付服务，通过js连接云端支付服务器，实现支付功能的全流程开发。 如下为一个支付示例，为DCloud提供的免费、开源软件进行捐赠吧
@@ -76,11 +65,11 @@
 					<textarea name="" id="status_msg" cols="20" rows="5"></textarea>
 				</ul>
 			</div>
-		</div>
-	</body>
-	<script src="../js/beecloud.js">
-	</script>
+{%endblock%}
+{%block js%}
+	<script src="../js/beecloud.js"></script>
 	<script type="text/javascript">
+        mui.init();
 		mui('.mui-content-padded').on('tap', '.pay', function() {
 			var channel_id = null;
 			switch (this.id) { 
@@ -146,5 +135,4 @@
 			});
 		}
 	</script>
-
-</html>
+{%endblock%}

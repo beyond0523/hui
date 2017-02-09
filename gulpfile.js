@@ -136,20 +136,11 @@ function getData(file){
     console.log(file.data);
 }
 
-// 编译并复制上层html
-gulp.task("copyTHtml",function(){
-    gulp.src("./src/*.html")
-        // .pipe(ejs({}))
-        // .pipe(data(getData))
-        .pipe(nunjucks({}))
-        .pipe(html(options))
-        .pipe(gulp.dest("./dist"));
-});
-
-// 编译并复制下层html
-gulp.task("copyBHtml",function(){
+// 编译并复制html
+gulp.task("compileHtml",function(){
     gulp.src(["./src/html/*.html","!./src/html/_*.html"])
         // .pipe(ejs({}))
+        .pipe(nunjucks({}))
         .pipe(html(options))
         .pipe(gulp.dest("./dist/html/"));
 });
@@ -167,7 +158,7 @@ gulp.task("copyFont",function(){
 });
 
 // 复制静态资源
-gulp.task("copy",["copyTHtml","copyBHtml","copyImg","copyFont"]);
+gulp.task("copy",["compileHtml","copyImg","copyFont"]);
 
 // 启动服务
 gulp.task("server",function(){
@@ -183,7 +174,7 @@ gulp.task("server",function(){
             }
         },
         port: yargs.p,
-        startPath:"./dist/"
+        startPath:"./dist/html/"
     });
 });
 

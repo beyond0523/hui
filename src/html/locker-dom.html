@@ -1,15 +1,10 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>手势锁屏示例</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="../css/mui.min.css">
-		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "手势图案锁屏",
+    barTitle : "手势图案锁屏"
+} %}
+{%block css%}
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			html,
 			body {
@@ -33,17 +28,12 @@
 				padding: 20px 10px;
 			}
 		</style>
-	</head>
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">手势图案锁屏</h1>
-		</header>
-		<div class="mui-content">
+{%endblock%}
+{%block content%}
 			<div id='holder' class="mui-locker" data-locker-options='{"ringColor":"rgba(210,210,210,1)","fillColor":"#ffffff","pointColor":"rgba(0,136,204,1)","lineColor":"rgba(0,136,204,1)"}' data-locker-width='300' data-locker-height='300'></div>
 			<div id='alert'></div>
-		</div>
-		<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 		<script src="../js/mui.locker.js"></script>
 		<script>
 			(function($, doc) {
@@ -77,5 +67,4 @@
 				});
 			}(mui, document));
 		</script>
-	</body>
-</html>
+{%endblock%}

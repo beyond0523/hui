@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="utf-8">
-		<title>欢迎来到H的世界</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-		<link rel="stylesheet" href="../css/mui.min.css">
+{% extends "src/html/_layout.html" %}
+{% set page={
+    hide : true,
+    title : "首页引导",
+    barTitle : "首页引导"
+} %}
+{%block css%}
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			#close {
 				position: absolute;
@@ -172,9 +169,8 @@
 				}
 			}
 		</style>
-	</head>
-
-	<body>
+{%endblock%}
+{%block content%}
 		<div id="slider" class="mui-slider mui-fullscreen" style="background-color: black;">
 			<div class="mui-slider-group">
 				<!-- 第一张 -->
@@ -235,7 +231,8 @@
 				<div class="mui-indicator"></div>
 			</div>
 		</div>
-		<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 		<script>
 			mui.back = function() {};
 			mui.plusReady(function() {
@@ -264,6 +261,4 @@
 			});
 			
 		</script>
-	</body>
-
-</html>
+{%endblock%}

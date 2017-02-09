@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>欢迎来到H的世界</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="../css/mui.min.css">
-		<!--App自定义的css-->
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "原生模式actionsheet",
+    barTitle : "原生模式actionsheet"
+} %}
+{%block css%}
 		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			p {
@@ -31,24 +26,8 @@
 				color: #8f8f94;
 			}
 		</style>
-	</head>
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">原生模式actionsheet</h1>
-		</header>
-		<nav class="mui-bar mui-bar-tab">
-			<a id="delete-btn" class="mui-tab-item">
-				<span class="mui-icon mui-icon-trash"></span>
-			</a>
-			<a class="mui-tab-item" href="#">
-			</a>
-			<a class="mui-tab-item" href="#">
-			</a>
-			<a class="mui-tab-item" href="#">
-			</a>
-		</nav>
-		<div class="mui-content">
+{%endblock%}
+{%block content%}
 			<div class="mui-content-padded">
 				<p>这是H封装的原生actionsheet，该模式具备如下优点：</p>
 				<ul class="des">
@@ -61,10 +40,22 @@
 					<a id="picture-btn" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined" style="padding: 5px 20px;">打开actionsheet</a>
 				</p>
 			</div>
-		</div>
 		<p id="info"></p>
-	</body>
-	<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block footer%}
+		<nav class="mui-bar mui-bar-tab">
+			<a id="delete-btn" class="mui-tab-item">
+				<span class="mui-icon mui-icon-trash"></span>
+			</a>
+			<a class="mui-tab-item" href="#">
+			</a>
+			<a class="mui-tab-item" href="#">
+			</a>
+			<a class="mui-tab-item" href="#">
+			</a>
+		</nav>
+{%endblock%}
+{%block js%}
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
@@ -119,4 +110,4 @@
 			} );
 		});
 	</script>
-</html>
+{%endblock%}

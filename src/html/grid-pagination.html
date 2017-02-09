@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="utf-8">
-		<title>欢迎来到H的世界</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="../css/mui.min.css">
-		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "左右拖动分页九宫格",
+    barTitle : "左右拖动分页九宫格"
+} %}
+{%block css%}
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			.mui-slider-indicator {
 				bottom: 0;
@@ -20,14 +13,8 @@
 				background-color: #f2f2f2;
 			}
 		</style>
-	</head>
-
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">左右拖动分页9宫</h1>
-		</header>
-		<div class="mui-content">
+{%endblock%}
+{%block content%}
 			<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
 					循环
@@ -220,9 +207,8 @@
 					<div class="mui-indicator"></div>
 				</div>
 			</div>
-		</div>
-	</body>
-	<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 	<script>
 		mui.init();
 		mui.ready(function() {
@@ -262,5 +248,4 @@
 			});
 		});
 	</script>
-
-</html>
+{%endblock%}
