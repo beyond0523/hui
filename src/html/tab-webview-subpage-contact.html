@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>欢迎来到H的世界</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="stylesheet" href="../css/mui.min.css">
+{% extends "src/html/_layout.html" %}
+{% set page={
+    title : "tabbar 子页面",
+    barTitle : "tabbar 子页面"
+} %}
+{%block css%}
+    <link rel="stylesheet" type="text/css" href="../css/app.css"/>
 		<style>
 			html,body {
 				background-color: #efeff4;
@@ -40,10 +38,8 @@
 				float: left;
 			}
 		</style>
-	</head>
-
-	<body>
-		<div class="mui-content">
+{%endblock%}
+{%block content%}
 			<div class="title">
 				这是webview模式选项卡中的第3个子页面，该页面展示一个通讯录示例
 			</div>
@@ -140,12 +136,11 @@
 					</div>
 				</li>
 			</ul>
-		</div>
-	</body>
-	<script src="../js/mui.min.js"></script>
+{%endblock%}
+{%block js%}
 	<script>
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
 		});
 	</script>
-</html>
+{%endblock%}

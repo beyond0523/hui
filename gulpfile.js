@@ -23,6 +23,12 @@ var gulp = require('gulp'),
     nunjucks  = require('gulp-nunjucks-render'),
     // 浏览器同步刷新
     sync = require('browser-sync'),
+    // 对文件名加MD5后缀
+    rev = require('gulp-rev'),
+    // 输出文件
+    // usemin = require('gulp-usemin'),
+    // 文件名称替换
+    replace = require('gulp-rev-collector'),
     // 重命名
     rename = require('gulp-rename');
 
@@ -108,6 +114,8 @@ gulp.task('compileCSS', ["cleanCSS"], function() {
         .pipe(gulp.dest(path.cssDist))
         .pipe(rename('mui.min.css'))
         .pipe(cssuglify())
+        .pipe(rev())
+        .pipe(rev.manifest())
         .pipe(gulp.dest(path.cssDist));
 });
 
@@ -123,6 +131,8 @@ gulp.task('compileJS', ["cleanJS"], function() {
         .pipe(gulp.dest(path.jsDist))
         .pipe(rename('mui.min.js'))
         .pipe(uglify())
+        .pipe(rev())
+        .pipe(rev.manifest())
         .pipe(gulp.dest(path.jsDist));
 });
 
@@ -131,17 +141,12 @@ gulp.task("cleanJS", function(cb) {
     return del(["./dist/js/mui.js","./dist/js/mui.min.js"], cb);
 });
 
-// 获取数据
-function getData(file){
-    console.log(file.data);
-}
-
 // 编译并复制html
 gulp.task("compileHtml",function(){
-    gulp.src(["./src/html/*.html","!./src/html/_*.html"])
-        // .pipe(ejs({}))
+    gulp.src(["./dist/css/rev-manifest.json","./dist/js/rev-manifest.json","./src/html/*.html","!./src/html/_*.html"])
         .pipe(nunjucks({}))
         .pipe(html(options))
+        .pipe(replace())
         .pipe(gulp.dest("./dist/html/"));
 });
 
