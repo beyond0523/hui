@@ -1,24 +1,40 @@
 var gulp = require('gulp'),
     // 启动参数获取
     yargs = require('yargs').argv,
-    // css压缩
-    css = require("gulp-clean-css"),
     // sass编译
     sass = require('gulp-sass'),
-    // js压缩
-    js = require('gulp-uglify'),
-    // nunjucks模板解析
-    nunjucks  = require('gulp-nunjucks-render'),
-    // html压缩
-    html = require('gulp-htmlmin'),
     // 多个文件合并
     concat = require('gulp-concat'),
-    // 重命名
-    rename = require('gulp-rename'),
+    // js压缩
+    uglify = require('gulp-uglify'),
+    // ejs模板编译为html
+    // ejs = require('gulp-ejs'),
+    // html压缩
+    html = require('gulp-htmlmin'),
+    // 数据获取
+    // data = require('gulp-data'),
+    // css压缩
+    cssuglify = require("gulp-clean-css"),
     // 删除文件
     del = require('del'),
+    // 添加浏览器前缀
+    // autoprefixer = require('gulp-autoprefixer'),
+    // nunjucks模板解析
+    nunjucks  = require('gulp-nunjucks-render'),
     // 浏览器同步刷新
-    sync = require('browser-sync');
+    sync = require('browser-sync'),
+    // 对文件名加MD5后缀
+    // rev = require('gulp-rev'),
+    // 对文件名加MD5后缀
+    rev = require('gulp-rev-all'),
+    // 输出文件
+    // usemin = require('gulp-usemin'),
+    // 文件名称替换
+    // replace = require('gulp-rev-collector'),
+    // 文件名称替换
+    useref = require('gulp-useref'),
+    // 重命名
+    rename = require('gulp-rename');
 
 // 路径配置
 var path = {
@@ -98,9 +114,11 @@ options = {
 gulp.task('compileCSS', ["cleanCSS"], function() {
     gulp.src("./src/sass/mui.scss")
         .pipe(sass())
+        // .pipe(autoprefixer())
         .pipe(gulp.dest(path.cssDist))
         .pipe(rename('mui.min.css'))
-        .pipe(css())
+        .pipe(cssuglify())
+        .pipe(rev.revision())
         .pipe(gulp.dest(path.cssDist));
 });
 
@@ -115,7 +133,8 @@ gulp.task('compileJS', ["cleanJS"], function() {
         .pipe(concat('mui.js'))
         .pipe(gulp.dest(path.jsDist))
         .pipe(rename('mui.min.js'))
-        .pipe(js())
+        .pipe(uglify())
+        .pipe(rev.revision())
         .pipe(gulp.dest(path.jsDist));
 });
 
@@ -126,8 +145,9 @@ gulp.task("cleanJS", function(cb) {
 
 // 编译并复制html
 gulp.task("compileHtml",function(){
-    gulp.src("./src/html/*.html","!./src/html/_*.html"])
+    gulp.src(["./src/html/*.html","!./src/html/_*.html"])
         .pipe(nunjucks({}))
+        .pipe(useref())
         .pipe(html(options))
         .pipe(gulp.dest("./dist/html/"));
 });
@@ -145,7 +165,7 @@ gulp.task("copyFont",function(){
 });
 
 // 复制静态资源
-gulp.task("copy",["","copyImg","copyFont"]);
+gulp.task("copy",["compileHtml","copyImg","copyFont"]);
 
 // 启动服务
 gulp.task("server",function(){
@@ -167,19 +187,19 @@ gulp.task("server",function(){
 
 // 监听任务
 gulp.task("monitor",function(){
-    gulp.watch(['./src/js/*.js'], ["compileJS"]);
-    gulp.watch(['./src/sass/*.scss',], ["compileCSS"]);
-    gulp.watch(["./src/*.html"], ["compileHtml"]);
+    gulp.watch(['./src/js/**/*.js'], ["compileJS"]);
+    gulp.watch(['./src/sass/**/*.scss',], ["compileCSS"]);
+    gulp.watch(["./src/*.html"], ["copyTHtml"]);
+    gulp.watch(["./src/html/*.html"], ["copyBHtml"]);
     gulp.watch(["./src/img/*"], ["copyImg"]);
     gulp.watch(["./src/font/*"], ["copyFont"]);
     gulp.watch(["./gulpfile.js"], ["default"]);
 }); 
 
 // 默认任务
-gulp.task('default',["compileCSS", "compileJS", "compileHtml", "copy"], function() {
+gulp.task('default',["compileCSS", "compileJS", "copy"], function() {
     if (yargs.s){
         gulp.start("server");
-        gulp.start("monitor");
     }
     if (yargs.w){
         gulp.start("monitor");

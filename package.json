@@ -39,10 +39,12 @@
     "gulp-nunjucks-render": "^2.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^7.1.2",
+    "gulp-rev-all": "^0.9.7",
     "gulp-rev-collector": "^1.1.1",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.0.0",
     "gulp-usemin": "^0.3.28",
+    "gulp-useref": "^3.1.2",
     "yargs": "^6.6.0"
   },
   "dependencies": {
